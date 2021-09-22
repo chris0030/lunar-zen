@@ -1,20 +1,30 @@
+{% import "post_macros.html" as post_macros %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        {% block head %}
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+        {% block meta_description %}
         {% if config.description -%}
         <meta name="description" content="{{ config.description }}">
         {% endif %}
+        {% endblock meta_description %}
+
+        {% block feed_link %}
+        {% if config.generate_feed %}
+        <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
+        {% endif %}
+        {% endblock feed_link %}
 
         <title>{% block title %}{{ config.title }}{% endblock title %}</title>
 
         {% block css %}
             <link rel="stylesheet" href="{{ get_url(path="theme.css", trailing_slash=false) | safe }}">
         {% endblock css %}
-        {% endblock head %}
+
+        {% block extra_head %}
+        {% endblock extra_head %}
     </head>
     <body>
         <div class="content">
@@ -93,7 +103,7 @@
                     Copyright &copy; {{ config.extra.author }}
                 </small>
                 <small class="footer-right">
-                    Powered by <a href="https://www.getzola.org">Zola</a> | Theme <a href="https://github.com/barlog-m/oceanic-zen">Oceanic Zen</a>
+                    Powered by <a href="https://www.getzola.org">Zola</a> | Theme WIP
                 </small>
             </div>
         {% endblock footer %}
