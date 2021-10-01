@@ -31,7 +31,7 @@
         {% block body%}
         {% block header %}
             <header>
-                <div class="header-left">
+                <div class="header-left" style="flex: 1">
                     <a href="{{ config.base_url }}" class="logo">{{ config.title }}</a>
                 </div>
                 <div class="header-right">
@@ -63,13 +63,20 @@
                       </ul>
                     </nav>
                 </div>
+                {% if config.extra.icon %}
+                <div style="align-self: flex-end">
+                    <a href="https://github.com/TransLunarInjection">
+                    <img src="{{ config.extra.icon }}" height="48" width="48" alt="{{ config.extra.icon_alt }}" style="vertical-align:middle" />
+                    </a>
+                </div>
+                {% endif %}
             </header>
         {% endblock header %}
         {% block content %}
         <main>
             {% block main %}
             <h1>Index</h1>
-            <div class="border"></div>
+            <hr>
                 <ul>
                 {% set index = get_section(path="_index.md") %}
                 {% for s in index.subsections %}
@@ -97,13 +104,13 @@
         {% endblock content %}
         <footer>
             {% block footer %}
-            <div class="border"></div>
+            <hr>
             <div class="footer">
                 <small class="footer-left">
-                    Copyright &copy; {{ config.extra.author }}
+                    Copyright &copy; {{ config.extra.author }} {% if config.extra.license %} {{ config.extra.license | safe }} {% endif %}
                 </small>
                 <small class="footer-right">
-                    Powered by <a href="https://www.getzola.org">Zola</a> | Theme WIP
+                    Powered by <a href="https://www.getzola.org" title="zola static site generator's website">Zola</a> | Theme <a href="https://github.com/TransLunarInjection/lunar-zen">lunar-zen</a>
                 </small>
             </div>
         {% endblock footer %}

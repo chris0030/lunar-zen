@@ -6,7 +6,7 @@
 <article itemscope itemtype="http://schema.org/BlogPosting">
     <div itemprop="headline">
         <h1>{{ page.title }}</h1>
-        <div class="border"></div>
+        <hr class="small">
         <time datetime="{{ page.date | date(format="%Y-%m-%d") }}" class="date" itemprop="datePublished">
             {{ page.date | date(format="%d %b %Y") }}
         </time>
@@ -14,8 +14,9 @@
     <div itemprop="articleBody">
         {{ page.content | safe }}
     </div>
-    <hr>
-    <p>
+    {% if page.taxonomies.tags or page.taxonomies.categories %}
+    <hr class="small">
+    <div>
         {% if page.taxonomies.categories %}
         {% set category = page.taxonomies.categories[0] %}
         in <a href="{{ get_taxonomy_url(kind="categories", name=category) | safe }}">{{ category }}</a>
@@ -27,7 +28,8 @@
         <a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">{{ tag }}</a>
         {% endfor %}
         {% endif %}
-    </p>
+    </div>
+    {% endif %}
     {% block extra_footer %}
     {% endblock extra_footer %}
 </article>
