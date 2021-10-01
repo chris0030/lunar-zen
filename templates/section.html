@@ -3,7 +3,7 @@
 {% block main %}
     {% if section.pages %}
         <h1>{{ section.title }}</h1>
-        <div class="border"></div>
+        <hr class="small">
         <ul>
         {% for p in section.pages %}
             <li>
@@ -17,7 +17,7 @@
         <article itemscope itemtype="http://schema.org/BlogPosting">
             <div itemprop="headline">
                 <h1>{{ section.title }}</h1>
-                <div class="border"></div>
+                <hr class="small">
             </div>
             <div itemprop="articleBody">
                 {{ section.content | safe }}
