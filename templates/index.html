@@ -19,6 +19,10 @@
 
         <title>{% block title %}{{ config.title }}{% endblock title %}</title>
 
+        {% block favicon %}
+            <link rel="icon" href="{{ get_url(path="favicon.ico") }}">
+        {% endblock favicon %}
+
         {% block css %}
             <link rel="stylesheet" href="{{ get_url(path="theme.css", trailing_slash=false) | safe }}">
         {% endblock css %}
