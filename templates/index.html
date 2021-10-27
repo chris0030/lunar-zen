@@ -36,7 +36,7 @@
         {% block header %}
             <header>
                 <div class="header-left" style="flex: 1">
-                    <a href="{{ config.base_url | safe }}" class="logo">{{ config.title }}</a>
+                    <a href="{{ get_url(path="/", trailing_slash=true) }}" class="logo">{{ config.title }}</a>
                 </div>
                 <div class="header-right">
                     <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
