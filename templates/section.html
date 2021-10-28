@@ -4,13 +4,8 @@
     {% if section.pages %}
         <h1>{{ section.title }}</h1>
         <hr class="small">
-        <ul>
         {% for p in section.pages %}
-            <li>
-                <a href="{{ p.permalink | safe}}">
-                    {{ p.title }}
-                </a>
-            </li>
+                {{ post_macros::page_in_list(page=p) }}
         {% endfor %}
         </ul>
     {% else %}

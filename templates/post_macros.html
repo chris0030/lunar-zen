@@ -18,9 +18,9 @@
 {% macro page_in_list(page) %}
     <article itemscope itemtype="http://schema.org/CreativeWork">
         <header>
-            <h2 itemprop="name">
+            <span class="page-name-link" itemprop="name">
                 <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
-            </h2>
+            </span>
             <span class="muted">{{ self::meta(page=page) }}</span>
         </header>
         {% if page.summary %}
