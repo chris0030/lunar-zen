@@ -7,6 +7,9 @@
         {% for p in section.pages %}
                 {{ post_macros::page_in_list(page=p) }}
         {% endfor %}
+        <div itemprop="articleBody">
+            {{ section.content | safe }}
+        </div>
         </ul>
     {% else %}
         <article itemscope itemtype="http://schema.org/BlogPosting">
