@@ -213,3 +213,5 @@ pre[data-lang] {
     background-color: midnightblue !important;
 }
 
+.footnote-definition { font-size: 75%; }
+.footnote-definition p { display: inline; } // https://github.com/getzola/zola/issues/1285
