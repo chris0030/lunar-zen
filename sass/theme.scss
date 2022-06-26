@@ -215,3 +215,35 @@ pre[data-lang] {
 
 .footnote-definition { font-size: 75%; }
 .footnote-definition p { display: inline; } // https://github.com/getzola/zola/issues/1285
+
+pre, code {
+    white-space: pre-wrap;
+    break-inside: initial;
+    word-break: break-all;
+}
+
+details {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: .5em .5em 0;
+}
+
+summary {
+    font-weight: bold;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+}
+
+details[open] {
+    padding: .5em;
+    max-height: calc(min(100em, 50vh));
+    overflow-y: scroll;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: .5em;
+    position: sticky;
+    top: -.5em;
+    background-color: black;
+}
