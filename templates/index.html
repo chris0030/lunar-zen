@@ -26,6 +26,8 @@
         <meta name="description" content="{{ config.description }}">
         <meta name="author" content="{{ page.author | default(value=config.extra.author) | default() }}">
 
+        <link rel="preload" href="{{ get_url(path="fonts/iosevka-regular.woff2") }}" as="font">
+
         {% block favicon -%}
         <link rel="icon" href="{{ get_url(path="favicon.ico") }}">
         {%- endblock favicon -%}
