@@ -12,7 +12,7 @@
         </time>
     </div>
     <div itemprop="articleBody">
-        {{ page.content | safe }}
+        {{ page.content | safe | replace(from="<!-- toc -->", to=post_macros::toc(toc=page.toc)) | safe }}
     </div>
     {% if page.taxonomies.tags or page.taxonomies.categories %}
     <hr class="small">
