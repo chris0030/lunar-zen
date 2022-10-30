@@ -172,13 +172,13 @@ p > code {
 .icon {
     display: inline-block;
     vertical-align: middle;
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
 }
 
 .content {
     margin: 0 auto;
-    width: 860px;
+    width: calc(min(1500px, max(1000px, 66vw)));
 }
 
 @media (max-width: 1200px) {
@@ -246,6 +246,19 @@ details[open] summary {
     position: sticky;
     top: -.5em;
     background-color: black;
+}
+
+figure {  margin: 0 auto; display: table; }
+
+figcaption { display: table-caption; caption-side: bottom ; }
+
+figure > p:first-child {
+    margin: 0;
+    text-align:center;
+}
+
+figure img {
+    max-height: 50vh;
 }
 
 figcaption {
