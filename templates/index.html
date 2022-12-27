@@ -1,7 +1,6 @@
 {% import "post_macros.html" as post_macros %}
 {%- set title = config.title -%}
 {%- set description = config.description | default() -%}
-{%- set page_icon = config.extra.icon | default() -%}
 {%- if page and page.title -%}
 {%- set title = page.title ~ ' | ' ~ title -%}
 {%- endif -%}
@@ -9,7 +8,6 @@
 {%- set description = page.description -%}
 {%- endif -%}
 {%- if page and page.extra.icon -%}
-{%- set page_icon = page.extra.icon -%}
 {%- endif -%}
 {%- if current_url %}
 {% set page_url = current_url %}
@@ -49,7 +47,6 @@
         <meta property="og:url" content="{{ get_url(path="/", trailing_slash=true) }}">
         <meta property="og:title" content="{{ title }}">
         <meta property="og:description" content="{{ description }}">
-        <meta property="og:image" content="{{ get_url(path=page_icon) }}">
         {% endblock fbmeta %}
 
         {%- block twittermeta -%}
@@ -57,7 +54,6 @@
         <meta name=”twitter:site” content=”@{{ config.extra.twitter }}” />
         <meta name=”twitter:title” content=”{{ title }}” />
         <meta name=”twitter:description” content=”{{ description }}” />
-        <meta name=”twitter:image” content=”{{ get_url(path=page_icon) }}” />
         {%- endblock twittermeta -%}
 
         {%- block extra_head -%}
