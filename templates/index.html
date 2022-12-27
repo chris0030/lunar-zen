@@ -49,13 +49,6 @@
         <meta property="og:description" content="{{ description }}">
         {% endblock fbmeta %}
 
-        {%- block twittermeta -%}
-        <meta name=”twitter:card” content=”summary” />
-        <meta name=”twitter:site” content=”@{{ config.extra.twitter }}” />
-        <meta name=”twitter:title” content=”{{ title }}” />
-        <meta name=”twitter:description” content=”{{ description }}” />
-        {%- endblock twittermeta -%}
-
         {%- block extra_head -%}
         {%- endblock extra_head -%}
     </head>
@@ -89,13 +82,6 @@
                         <li class="nav">
                             <a itemprop="url" href="https://github.com/{{ config.extra.github }}">
                                 <img class="icon" height=32 width=32 src="{{ get_url(path="icons/github.svg") }}" alt="Github">
-                            </a>
-                        </li>
-                        {% endif %}
-                        {% if config.extra.twitter %}
-                        <li class="nav">
-                            <a itemprop="url" href="https://twitter.com/{{ config.extra.twitter }}">
-                                <img class="icon" src="{{ get_url(path="icons/twitter.svg") }}" alt="Twitter">
                             </a>
                         </li>
                         {% endif %}
